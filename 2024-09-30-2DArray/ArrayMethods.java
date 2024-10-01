@@ -25,6 +25,17 @@ public class ArrayMethods
         int[][] array1 = new int[][]{{-2, 7, -9, 2}, {-3, -6, 7, 2}, {-7, -4, -2, 2}};
         replaceNegative(array1);
         System.out.println(arrayToString(array1));
+
+        System.out.println("------ 2dcopy ------");
+
+        int[][] copy = copy(array1);
+        System.out.println(array1); // should be different
+        System.out.println(copy);
+        System.out.println("Same address?: " + (array1 == copy));
+
+        System.out.println(arrayToString(array1)); // should be same
+        System.out.println(arrayToString(copy));
+        System.out.println("Same values?: " + (arrayToString(array1).equals(arrayToString(copy))));
     }
 
     public static String arrayToString(int[] array)
@@ -96,5 +107,25 @@ public class ArrayMethods
                 }
             }
         }
+    }
+
+    public static int[][] copy(int[][] nums)
+    {
+        int[][] thingy = new int[nums.length][0];
+        for(int i = 0; i < nums.length; i++)
+        {
+            thingy[i] = copy(nums[i]);
+        }
+        return thingy;
+    }
+
+    public static int[] copy(int[] nums)
+    {
+        int[] thingy = new int[nums.length];
+        for(int i = 0; i < nums.length; i++)
+        {
+            thingy[i] = nums[i];
+        }
+        return thingy;
     }
 }
