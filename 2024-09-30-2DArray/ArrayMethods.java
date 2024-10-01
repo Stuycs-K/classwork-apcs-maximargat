@@ -4,6 +4,7 @@ public class ArrayMethods
 
     public static void main(String[] args)
     {
+        /*
         int[][] array1 = new int[][]{{2, 7, 9, 0}, {3, 6, 1, 0}, {7, 4, 2, 0}}; // sum should be 41
         System.out.println(arrayToString(array1));
 
@@ -20,6 +21,10 @@ public class ArrayMethods
         // System.out.println(arrayToString(swapRC(raggedarray))); causes exception
         int[][] stickarray = new int[][]{{1}, {2}, {3}, {4}, {5}, {6}, {7}};
         System.out.println(arrayToString(swapRC(stickarray)));
+        */
+        int[][] array1 = new int[][]{{-2, 7, -9, 2}, {-3, -6, 7, 2}, {-7, -4, -2, 2}};
+        replaceNegative(array1);
+        System.out.println(arrayToString(array1));
     }
 
     public static String arrayToString(int[] array)
@@ -74,5 +79,22 @@ public class ArrayMethods
             }
         }
         return returnArray;
+    }
+
+    public static void replaceNegative(int[][] vals)
+    {
+        for (int i = 0; i < vals.length; i++)
+        {
+            for (int j = 0; j < vals[i].length; j++)
+            {
+                if (vals[i][j] < 0)
+                {
+                    if (i == j)
+                        vals[i][j] = 1;
+                    else
+                        vals[i][j] = 0;
+                }
+            }
+        }
     }
 }
