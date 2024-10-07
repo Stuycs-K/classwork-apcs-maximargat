@@ -2,10 +2,12 @@ import java.util.Arrays;
 public class ArrayDemo{
     public static void main(String[]args){
     //write your tests here!
-        int[][] testarray = {{1,0,3,6}, {0}, {}, {4,4,4,4,4,4,4,4,4,4}, {0, 6, 4, 3, 1}};
-        System.out.println("countzeros2d() test");
+        int[][] testarray = {{1,0,-3,6}, {0}, {}, {4,-4,4,4,-4,4,4,4,-4,4}, {0, -6, 4, 3, 1}};
         System.out.println(arrToString(testarray));
+        System.out.println("countzeros2d() test");
         System.out.println(countZeros2D(testarray)); // expected: 3
+        System.out.println("arr2dsum() test");
+        System.out.println(arr2DSum(testarray)); // expected: 22
     }
 
     public static String arrToString(int[] array)
@@ -35,7 +37,6 @@ public class ArrayDemo{
     //1. Calculate and return how many elements equal zero in the 2D array.
     public static int countZeros2D(int[][] nums){
         int count = 0;
-
         for(int y = 0; y < nums.length; y++)
         {
             for(int x = 0; x < nums[y].length; x++)
@@ -44,7 +45,6 @@ public class ArrayDemo{
                     count++;
             }
         }
-
         return count;
     }
 
@@ -52,7 +52,15 @@ public class ArrayDemo{
     /*Return the sum of all of the values in the 2D array
     *Use a nested loop instead of a helper method*/
     public static int arr2DSum(int[][]nums){
-        return 0; 
+        int sum = 0;
+        for(int y = 0; y < nums.length; y++)
+        {
+            for(int x = 0; x < nums[y].length; x++)
+            {
+                sum += nums[y][x];
+            }
+        }
+        return sum;
     }
 
     //3. Modify a given 2D array of integer as follows:
