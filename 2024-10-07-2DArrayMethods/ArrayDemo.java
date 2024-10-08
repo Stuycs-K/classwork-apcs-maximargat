@@ -8,6 +8,11 @@ public class ArrayDemo{
         System.out.println(countZeros2D(testarray)); // expected: 3
         System.out.println("arr2dsum() test");
         System.out.println(arr2DSum(testarray)); // expected: 22
+
+        System.out.println("replaceNegative() test");
+        testarray = new int[][]{{1,0,-3,6}, {0}, {}, {4,-4,4,-4,-4,4,4,4,-4,4}, {0, -6, 4, 3, 1}};
+        replaceNegative(testarray);  // should replace -3 with 0, -4 no. 1, 3, and 4 with 0,
+        System.out.println(arrToString(testarray)); // -4 no. 2 with 1, and -6 with 0
     }
 
     public static String arrToString(int[] array)
@@ -51,13 +56,14 @@ public class ArrayDemo{
     //2. Calculate the sum of a 2d array
     /*Return the sum of all of the values in the 2D array
     *Use a nested loop instead of a helper method*/
-    public static int arr2DSum(int[][]nums){
+    public static int arr2DSum(int[][] array)
+    {
         int sum = 0;
-        for(int y = 0; y < nums.length; y++)
+        for(int y = 0; y < array.length; y++)
         {
-            for(int x = 0; x < nums[y].length; x++)
+            for(int x = 0; x < array[y].length; x++)
             {
-                sum += nums[y][x];
+                sum += array[y][x];
             }
         }
         return sum;
@@ -68,8 +74,17 @@ public class ArrayDemo{
     //-When the row number is the same as the column number replace
     //that negative with the value 1
     //-All other negatives replace with 0
-    public static void replaceNegative(int[][] vals){
-
+    public static void replaceNegative(int[][] nums){
+        for(int y = 0; y < nums.length; y++)
+        {
+            for(int x = 0; x < nums[y].length; x++)
+            {
+                if(nums[y][x] < 0)
+                {
+                    nums[y][x] = (x == y) ? 1 : 0;
+                }
+            }
+        }
     }
 
     //4. Make a copy of the given 2d array.
