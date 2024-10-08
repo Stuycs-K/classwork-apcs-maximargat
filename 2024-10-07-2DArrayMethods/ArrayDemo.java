@@ -131,6 +131,14 @@ public class ArrayDemo{
 
         int[][] result = new int[newrowsamt][newcolsamt];
 
+        for(int row = 0; row < newrowsamt; row++)
+        {
+            for(int col = 0; col < newcolsamt; col++)
+            {
+                result[row][col] = nums[col][row];
+            }
+        }
+
         return result;
 
         
