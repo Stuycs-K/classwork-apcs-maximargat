@@ -22,6 +22,12 @@ public class ArrayDemo{
         System.out.println("Copied!");
         System.out.println("Same address?: " + beforerunningmemadress.equals("" + copied)); // should be false
         System.out.println("Same content?: " + beforerunning.equals(arrToString(copied))); // should be true
+
+        System.out.println("swapRC() test");
+
+        testarray = new int[][]{{1, 5, 3}, {0, 8, 5}, {3, 5, 4}, {0, 5, 6}};
+        System.out.println(arrToString(testarray));
+        System.out.println(arrToString(swapRC(testarray)));
     }
 
     public static String arrToString(int[] array)
@@ -118,8 +124,16 @@ public class ArrayDemo{
     //5. Rotate an array by returning a new array with the rows and columns swapped.
     //   You may assume the array is rectangular and neither rows nor cols is 0.
     //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
-    public static int[][] swapRC(int[][]nums){
-        return new int[1][1];
+    public static int[][] swapRC(int[][]nums)
+    {
+        int newcolsamt = nums.length;
+        int newrowsamt = nums[0].length; // can be done because rectangular, so length of any index is the same
+
+        int[][] result = new int[newrowsamt][newcolsamt];
+
+        return result;
+
+        
     }
 
     //6. Make an HTML table by putting a table tag around the entire 2d array,
