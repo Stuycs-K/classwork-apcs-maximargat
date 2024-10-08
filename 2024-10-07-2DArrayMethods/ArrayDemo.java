@@ -13,6 +13,15 @@ public class ArrayDemo{
         testarray = new int[][]{{1,0,-3,6}, {0}, {}, {4,-4,4,-4,-4,4,4,4,-4,4}, {0, -6, 4, 3, 1}};
         replaceNegative(testarray);  // should replace -3 with 0, -4 no. 1, 3, and 4 with 0,
         System.out.println(arrToString(testarray)); // -4 no. 2 with 1, and -6 with 0
+
+        System.out.println("copy() test");
+
+        String beforerunning = arrToString(testarray);
+        String beforerunningmemadress = "" + testarray;
+        int[][] copied = copy(testarray);
+        System.out.println("Copied!");
+        System.out.println("Same address?: " + beforerunningmemadress.equals("" + copied)); // should be false
+        System.out.println("Same content?: " + beforerunning.equals(arrToString(copied))); // should be true
     }
 
     public static String arrToString(int[] array)
@@ -92,8 +101,18 @@ public class ArrayDemo{
     //DO NOT use any built in methods that "copy" an array.
     //You SHOULD write a helper method for this.
     //If you don't see a good way to do that, you should stop and look at prior methods.
-    public static int[][] copy(int[][] nums){
-        return new int[1][1];
+    public static int[][] copy(int[][] nums)
+    {
+        int[][] result = new int[nums.length][];
+        for(int y = 0; y < nums.length; y++)
+        {
+            result[y] = new int[nums[y].length];
+            for(int x = 0; x < nums[y].length; x++)
+            {
+                result[y][x] = nums[y][x];
+            }
+        }
+        return result;
     }
 
     //5. Rotate an array by returning a new array with the rows and columns swapped.
