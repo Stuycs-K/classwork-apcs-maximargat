@@ -32,6 +32,10 @@ public class ArrayDemo{
         System.out.println("htmlTable() test");
         System.out.println("expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>");
         System.out.println("returned: " + htmlTable(new int[][]{{1,2},{3}}));
+        testarray = new int[][]{{1, 5, 3}, {0, 8, 5}};
+        System.out.println("expected: <table><tr><td>1</td><td>5</td><td>3</td></tr>"
+                            + "<tr><td>0</td><td>8</td><td>5</td></tr></table>");
+        System.out.println("returned: " + htmlTable(testarray));
 
     }
 
@@ -162,7 +166,7 @@ public class ArrayDemo{
         for(int y = 0; y < nums.length; y++)
         {
             if(nums[y].length == 0)
-                continue;
+                continue; // assuming that table rows with no data or cells shouldn't be made
             buildstring += "<tr>";
             for(int x = 0; x < nums[y].length; x++)
             {
