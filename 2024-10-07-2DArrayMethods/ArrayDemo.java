@@ -28,6 +28,11 @@ public class ArrayDemo{
         testarray = new int[][]{{1, 5, 3}, {0, 8, 5}, {3, 5, 4}, {0, 5, 6}};
         System.out.println(arrToString(testarray));
         System.out.println(arrToString(swapRC(testarray)));
+
+        System.out.println("htmlTable() test");
+        System.out.println("expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>");
+        System.out.println("returned: " + htmlTable(new int[][]{{1,2},{3}}));
+
     }
 
     public static String arrToString(int[] array)
@@ -147,10 +152,25 @@ public class ArrayDemo{
     //6. Make an HTML table by putting a table tag around the entire 2d array,
     //   tr tags around each row, and td tags around each value.
     //   You may use a helper method
-    //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
+    //   Note there is no whitespace in the string, it is all one line with no spaces/tabs.
     //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
     // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
-    public static String htmlTable(int[][]nums){
-        return "";
+    public static String htmlTable(int[][]nums)
+    {
+        String buildstring = "<table>";
+
+        for(int y = 0; y < nums.length; y++)
+        {
+            if(nums[y].length == 0)
+                continue;
+            buildstring += "<tr>";
+            for(int x = 0; x < nums[y].length; x++)
+            {
+                buildstring += "<td>" + nums[y][x] + "</td>";
+            }
+            buildstring += "</tr>";
+        }
+
+        return buildstring + "</table>";
     }
 }
