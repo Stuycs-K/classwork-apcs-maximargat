@@ -4,7 +4,7 @@ public class Point
 
     public String toString()
     {
-        return "WRITE THIS FIRST"
+        return "(" + x + ", " + y + ")";
     }
 
     //Initialize this Point to have the same values as the other Point.
@@ -15,7 +15,7 @@ public class Point
     }
 
     //Initialize this Point to have the provided values
-    public Point(double x, double Y)
+    public Point(double x, double y)
     {
         this.x = x;
         this.y = y;
