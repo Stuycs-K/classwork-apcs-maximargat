@@ -43,6 +43,6 @@ public class Point
     */
     public static double distance(Point a, Point b)
     {
-        return 0.0;
+        return Math.sqrt((a.getX() - b.getX()) * (a.getX() - b.getX()) + (a.getY() - b.getY()) * (a.getY() - b.getY()));
     }
 }
