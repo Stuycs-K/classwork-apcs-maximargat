@@ -34,7 +34,7 @@ public class Point
     */
     public double distanceTo(Point other)
     {
-        return 0.0;
+        return Math.sqrt((x - other.getX()) * (x - other.getX()) + (y - other.getY()) * (y - other.getY()));
     }
 
     /*

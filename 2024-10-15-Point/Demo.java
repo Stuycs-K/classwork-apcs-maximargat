@@ -18,8 +18,8 @@ public class Demo
         Point p3copy = new Point (p3);
         System.out.println("Point 3 copy: " + p3copy);
         System.out.println("Same address? " + (p3 == p3copy));
-        System.out.println("Distance from Points 1 and 2: " + distance(p1,p2));
+        System.out.println("Distance (static from Demo) " + distance(p1,p2));
         System.out.println(Point.distance(p1,p2));
-        System.out.println(p1.distanceTo(p2));
+        System.out.println("distanceTo() from Point: " + p1.distanceTo(p2));
     }
 }
