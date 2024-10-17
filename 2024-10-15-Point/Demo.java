@@ -21,5 +21,14 @@ public class Demo
         System.out.println("Static distance() in Demo:   " + distance(p1,p2));
         System.out.println("Static distance() in Point:  " + Point.distance(p1,p2));
         System.out.println("distanceTo() from Point:     " + p1.distanceTo(p2));
+
+
+        Point tri1 = new Point(-0.5, 0);
+        Point tri2 = new Point(0.5, 0);
+        Point tri3 = new Point(0, 0.5 * Math.sqrt(3));
+
+        System.out.println(distance(tri1, tri2));
+        System.out.println(distance(tri2, tri3));
+        System.out.println(distance(tri3, tri1));
     }
 }
