@@ -11,8 +11,10 @@ public class ReadFile {
 
       while(input.hasNextLine())
       {
-          System.out.println(input.nextLine());
-          input.nextLine();
+          String next = input.nextLine();
+          if(next.contains("{"))
+            System.out.println(next);
+          //input.nextLine();
 
           // should be according..., the..., ooh..., barry..., hang...
       }
