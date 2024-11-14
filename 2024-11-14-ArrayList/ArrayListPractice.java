@@ -8,6 +8,7 @@ public class ArrayListPractice
         ArrayList<String> testarr1 = createRandomArray(10);
         replaceEmpty(testarr1);
         System.out.println(testarr1);
+        System.out.println(makeReversedList(testarr1));
     }
     
     public static ArrayList<String>createRandomArray(int size)
@@ -41,8 +42,11 @@ public class ArrayListPractice
 
     public static ArrayList<String> makeReversedList(ArrayList<String> original)
     {
-        //return a new ArrayList that is in the reversed order of the original.
-        return createRandomArray(1);
+        ArrayList<String> res = new ArrayList<String>();
+        for (int i = original.size()-1; i>=0; i--) {
+            res.add(original.get(i));
+        }
+        return res;
     } 
 
     public static ArrayList<String> mixLists(ArrayList<String> a, ArrayList<String> b)
