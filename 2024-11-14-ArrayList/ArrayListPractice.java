@@ -5,7 +5,9 @@ public class ArrayListPractice
 {
     public static void main(String[] args)
     {
-        System.out.println(createRandomArray(10));
+        ArrayList<String> testarr1 = createRandomArray(10);
+        replaceEmpty(testarr1);
+        System.out.println(testarr1);
     }
     
     public static ArrayList<String>createRandomArray(int size)
@@ -14,7 +16,7 @@ public class ArrayListPractice
 
         for(int i = 0; i < size; i++)
         {
-            int thing = (int)(Math.random() * 101);
+            int thing = (int)(Math.random() * 11);
             if(thing == 0)
             {
                 al.add("");
@@ -30,9 +32,11 @@ public class ArrayListPractice
 
     public static void replaceEmpty(ArrayList<String> original)
     {
-        //Modify the ArrayList such that it has all of the empty strings are
-        //replaced with the word "Empty".
-
+        for (int i = 0; i < original.size(); i++) {
+            if (original.get(i).equals("")) {
+                original.set(i, "Empty");
+            }
+        }
     } 
 
     public static ArrayList<String> makeReversedList(ArrayList<String> original)

@@ -10,7 +10,7 @@ public class TriangleTester
         //System.out.println(test(10, 30, 14)); // impossible
 
         System.out.println("CountTris (A): "+ countTrianglesA("inputTri.txt"));
-        System.out.println("CountTris (B): " + countTrianglesB("inputTri.txt")); // should be 6 for the short one
+        //System.out.println("CountTris (B): " + countTrianglesB("inputTri.txt")); // should be 6 for the short one
     }
     public static int countTrianglesA(String filename)
     {
@@ -20,14 +20,28 @@ public class TriangleTester
             int countvalid = 0;
             while(sc.hasNextLine())
             {
-                if(test(sc.nextInt(), sc.nextInt(), sc.nextInt()))
+                //if(test(sc.nextInt(), sc.nextInt(), sc.nextInt()))
+                //    countvalid++;
+                String str = sc.nextLine();
+                String[] splitted = str.split("  ");
+                int[] actualstuff = new int[3];
+                for(int i = 1; i < splitted.length; i++)
+                {
+                    actualstuff[i - 1] = Integer.parseInt(splitted[i]);
+                }
+                if(test(actualstuff[0], actualstuff[1], actualstuff[2]))
                     countvalid++;
             }
             return countvalid;
         }
+        catch(FileNotFoundException fnfe)
+        {
+            fnfe.printStackTrace();
+            return -999;
+        }
         catch(Exception e)
         {
-            System.out.println("File not found");
+            e.printStackTrace();
             return -999;
         }
     }
