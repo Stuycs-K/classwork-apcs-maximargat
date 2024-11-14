@@ -5,15 +5,12 @@ public class ArrayListPractice
 {
     public static void main(String[] args)
     {
-        ArrayList<String> testarr1 = createRandomArray(7);
+        System.out.println("start");
+        ArrayList<String> testarr1 = createRandomArray(250000);
         replaceEmpty(testarr1);
-        System.out.println(testarr1);
-        ArrayList<String> testarr2 = createRandomArray(10);
-        replaceEmpty(testarr2);
-        System.out.println(testarr2);
-        //System.out.println(makeReversedList(testarr1));
-
-        System.out.println(mixLists(testarr1, testarr2));
+        ArrayList<String> testarr2 = createRandomArray(300000);
+        mixLists(makeReversedList(testarr1), mixLists(testarr1, testarr2));
+        System.out.println("done");
     }
     
     public static ArrayList<String>createRandomArray(int size)
