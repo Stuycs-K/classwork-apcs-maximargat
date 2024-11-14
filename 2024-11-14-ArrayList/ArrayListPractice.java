@@ -5,10 +5,15 @@ public class ArrayListPractice
 {
     public static void main(String[] args)
     {
-        ArrayList<String> testarr1 = createRandomArray(10);
+        ArrayList<String> testarr1 = createRandomArray(7);
         replaceEmpty(testarr1);
         System.out.println(testarr1);
-        System.out.println(makeReversedList(testarr1));
+        ArrayList<String> testarr2 = createRandomArray(10);
+        replaceEmpty(testarr2);
+        System.out.println(testarr2);
+        //System.out.println(makeReversedList(testarr1));
+
+        System.out.println(mixLists(testarr1, testarr2));
     }
     
     public static ArrayList<String>createRandomArray(int size)
@@ -51,9 +56,14 @@ public class ArrayListPractice
 
     public static ArrayList<String> mixLists(ArrayList<String> a, ArrayList<String> b)
     {
-        //return a new ArrayList that has all values of a and b in alternating order that is:
-        //a[0], b[0], a[1], b[1]...
-        //If one list is longer than the other, just attach the remaining values to the end.
-        return createRandomArray(1);
+        ArrayList<String> res = new ArrayList<String>();
+        for (int i = 0; i < Math.max(a.size(), b.size()); i++)
+        {
+            if(i < a.size())
+                res.add(a.get(i));
+            if(i < b.size())
+                res.add(b.get(i));
+        }
+        return res;
     } 
 }
