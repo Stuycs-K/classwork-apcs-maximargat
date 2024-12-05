@@ -6,7 +6,10 @@ public class Driver
         hborder();
         numbers();
         divider();
-        // 26 lines left
+        for(int i = 0; i < 26; i++)
+        {
+            printMidLine();
+        }
         hborder();
     }
 
@@ -77,7 +80,7 @@ public class Driver
 
         Text.color(Text.YELLOW + 60, 46);
         System.out.print("|");
-        Text.color(Text.WHITE + 70, 30);
+        Text.color(Text.WHITE + 70, Text.RED);
         System.out.print(dashes);
         Text.color(Text.YELLOW + 60, 46);
         System.out.print("|");
@@ -87,7 +90,16 @@ public class Driver
 
     public static void printMidLine()
     {
-
+        Text.color(Text.YELLOW + 60, 46);
+        System.out.print("|");
+        Text.color(Text.WHITE + 70, 30);
+        for(int i = 0; i < 78; i++)
+        {
+            System.out.print(Math.random() > 0.5 ? "#" : " ");
+        }
+        Text.color(Text.YELLOW + 60, 46);
+        System.out.print("|");
+        System.out.print(Text.RESET);
         System.out.print("\n");
     }
 }
