@@ -17,7 +17,8 @@ public class Thief extends Adventurer
     public int getSpecialMax() {return 10;}
 
     //hurt or hinder the target adventurer
-    public String attack(Adventurer other) {return "";}
+    public String attack(Adventurer other)
+    {return "";}
     
     //heal or buff the target adventurer
     public String support(Adventurer other){return "";}
