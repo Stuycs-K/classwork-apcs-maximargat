@@ -6,7 +6,7 @@ public class Thief extends Adventurer
     }
     public Thief (String name, int hp)
     {
-        super(name, 15);
+        super(name, hp);
     }
 
     public String getSpecialName() {return "Plunder";}
@@ -43,11 +43,20 @@ public class Thief extends Adventurer
     //hurt or hinder the target adventurer, consume some special resource
     public String specialAttack(Adventurer other)
     {
-        // steals other's special and damages other, heals self
-        setSpecial(other.getSpecial());
-        other.setSpecial(0);
-        other.applyDamage(3);
-        setHP(Math.min(getHP() + 2, getmaxHP()));
-        return getName() + " plundered " + other.getName() + "!";
+        if(getSpecial() >= getSpecialMax())
+        {
+            // steals other's special and damages other, heals self
+            setSpecial(0);
+            restoreSpecial(other.getSpecial() + 2); 
+            other.setSpecial(0);
+            other.applyDamage(3);
+            setHP(Math.min(getHP() + 2, getmaxHP()));
+            return getName() + " plundered " + other.getName() + "!";
+        }
+        else
+        {
+            // attacks instead
+            return getName() + " wussed out, instead " + attack(other);
+        }
     }
 }

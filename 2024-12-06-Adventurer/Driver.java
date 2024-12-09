@@ -17,7 +17,12 @@ public class Driver
         // healing doesn't go over max HP, good
         System.out.println(thief2.support(thief1));
         System.out.println(info(thief1) + "\n" + info(thief2));
+        System.out.println(thief1.attack(thief2));
+        System.out.println(thief1.support());
 
+
+        System.out.println(thief1.specialAttack(thief2));
+        System.out.println(info(thief1) + "\n" + info(thief2));
         System.out.println(thief1.specialAttack(thief2));
         System.out.println(info(thief1) + "\n" + info(thief2));
         System.out.println(thief1.specialAttack(thief2));
