@@ -18,14 +18,36 @@ public class Thief extends Adventurer
 
     //hurt or hinder the target adventurer
     public String attack(Adventurer other)
-    {return "";}
+    {
+        other.applyDamage(2);
+        setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
+        return getName() + " attacked " + other.getName() + "!";
+    }
     
     //heal or buff the target adventurer
-    public String support(Adventurer other){return "";}
+    public String support(Adventurer other)
+    {
+        other.restoreSpecial(5);
+        other.setHP(Math.min(other.getHP() + 1, other.getmaxHP()));
+        return getName() + " healed " + other.getName() + " and restored their special!";
+    }
 
     //heal or buff self
-    public String support() {return "";}
+    public String support()
+    {
+        setHP(Math.min(getHP() + 2, getmaxHP()));
+        setSpecial(Math.min(getSpecial() + 4, getSpecialMax()));
+        return getName() + " healed by 2 and became more daring!";
+    }
 
     //hurt or hinder the target adventurer, consume some special resource
-    public String specialAttack(Adventurer other) {return "";}
+    public String specialAttack(Adventurer other)
+    {
+        // steals other's special and damages other, heals self
+        setSpecial(other.getSpecial());
+        other.setSpecial(0);
+        other.applyDamage(3);
+        setHP(Math.min(getHP() + 2, getmaxHP()));
+        return getName() + " plundered " + other.getName() + "!";
+    }
 }
