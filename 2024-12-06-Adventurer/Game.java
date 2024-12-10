@@ -6,7 +6,6 @@ public class Game
     {
         Scanner inputsc = new Scanner(System.in);
 
-        boolean shouldprint = true;
         int firstname = (int)(Math.random() * names.length);
         int secondname = (int)(Math.random() * names.length);
         while(firstname == secondname)
@@ -21,10 +20,6 @@ public class Game
         {
             // run turn
             /*
-            The user can type a/attack to select attack, or type sp/special to do a special attack, or su/support to support themselves. You then make the character use the appropriate action.
-            If the user types quit, end the program.
-            If an invalid response is typed, ask again until the response is valid.
-            Print the results of the action.
             Now if the opponent is still alive (HP > 0) have the computer randomly choose to have the opponent attack/special attack the player, or buff themselves.
             Print the results of the action
             */
@@ -38,19 +33,18 @@ public class Game
 
             if(input.equals("a") | input.equals("attack"))
             {
-                //System.out.println("attack");
+                System.out.println(myguy.attack(otherguy));
             }
             else if(input.equals("sp") | input.equals("special"))
             {
-                //System.out.println("special");
+                System.out.println(myguy.specialAttack(otherguy));
             }
             else if(input.equals("su") | input.equals("support"))
             {
-                //System.out.println("support");
+                System.out.println(myguy.support());
             }
             else if(input.equals("quit"))
             {
-                shouldprint = false;
                 break;
             }
             else
@@ -58,15 +52,21 @@ public class Game
                 // invalid input
                 System.out.print("Invalid input, please (a)ttack, (sp)ecial, (su)pport, or quit ");
                 printnextloop = false;
+                continue;
+            }
+
+            if(otherguy.getHP() > 0)
+            {
+
+            }
+            else
+            {
+                System.out.println(otherguy.getName() + " is no more.");
+                System.out.println(myguy.getName() + " won with " + myguy.getHP() + " HP remaining!");
+                break;
             }
 
         }
-        
-
-        // print results
-        if(shouldprint)
-            System.out.println(info(myguy) + "\n" + info(otherguy));
-
     }
 
     public static String info(Adventurer guy) // copied from Driver
