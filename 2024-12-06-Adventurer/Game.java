@@ -6,6 +6,7 @@ public class Game
     {
         Scanner inputsc = new Scanner(System.in);
 
+        boolean shouldprint = true;
         int firstname = (int)(Math.random() * names.length);
         int secondname = (int)(Math.random() * names.length);
         while(firstname == secondname)
@@ -15,12 +16,11 @@ public class Game
         Thief myguy = new Thief(names[firstname]);
         CodeWarrior otherguy = new CodeWarrior(names[secondname]);
 
-        
+        boolean printnextloop = true;
         while(myguy.getHP() > 0 && otherguy.getHP() > 0)
         {
             // run turn
             /*
-            Prompt the user: "Type: (a)ttack / (sp)ecial / (su)pport" / quit
             The user can type a/attack to select attack, or type sp/special to do a special attack, or su/support to support themselves. You then make the character use the appropriate action.
             If the user types quit, end the program.
             If an invalid response is typed, ask again until the response is valid.
@@ -30,32 +30,42 @@ public class Game
             */
 
             //print the names / HP / SpecialResource(quantity+name) of both the player and enemy. e.g. Conan, 5/16 HP, 19/20 Rage
-            System.out.println(info(myguy) + "\n" + info(otherguy));
+            if(printnextloop)
+                System.out.println(info(myguy) + "\n" + info(otherguy));
+            printnextloop = true;
 
             String input = inputsc.nextLine();
 
             if(input.equals("a") | input.equals("attack"))
             {
-                System.out.println("attack");
+                //System.out.println("attack");
             }
-            if(input.equals("sp") | input.equals("special"))
+            else if(input.equals("sp") | input.equals("special"))
             {
-                System.out.println("special");
+                //System.out.println("special");
             }
-            if(input.equals("su") | input.equals("support"))
+            else if(input.equals("su") | input.equals("support"))
             {
-                System.out.println("support");
+                //System.out.println("support");
             }
-            if(input.equals("quit"))
+            else if(input.equals("quit"))
             {
+                shouldprint = false;
                 break;
+            }
+            else
+            {
+                // invalid input
+                System.out.print("Invalid input, please (a)ttack, (sp)ecial, (su)pport, or quit ");
+                printnextloop = false;
             }
 
         }
         
 
         // print results
-        System.out.println(info(myguy) + "\n" + info(otherguy));
+        if(shouldprint)
+            System.out.println(info(myguy) + "\n" + info(otherguy));
 
     }
 
