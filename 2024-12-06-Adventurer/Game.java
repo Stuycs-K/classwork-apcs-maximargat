@@ -18,13 +18,6 @@ public class Game
         boolean printnextloop = true;
         while(myguy.getHP() > 0 && otherguy.getHP() > 0)
         {
-            // run turn
-            /*
-            Now if the opponent is still alive (HP > 0) have the computer randomly choose to have the opponent attack/special attack the player, or buff themselves.
-            Print the results of the action
-            */
-
-            //print the names / HP / SpecialResource(quantity+name) of both the player and enemy. e.g. Conan, 5/16 HP, 19/20 Rage
             if(printnextloop)
                 System.out.println(info(myguy) + "\n" + info(otherguy));
             printnextloop = true;
@@ -57,7 +50,17 @@ public class Game
 
             if(otherguy.getHP() > 0)
             {
+                int upperbound = 2;
+                if(otherguy.getSpecial() >= otherguy.getSpecialMax())
+                    upperbound = 3; // doesnt try special unless able to
+                int chosenmove = (int)(Math.random() * upperbound);
 
+                if(chosenmove == 0)
+                    System.out.println(otherguy.attack(myguy));
+                else if(chosenmove == 1)
+                    System.out.println(otherguy.support());
+                else if(chosenmove == 2)
+                    System.out.println(otherguy.specialAttack(myguy));
             }
             else
             {
