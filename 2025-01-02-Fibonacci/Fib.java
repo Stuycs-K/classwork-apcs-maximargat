@@ -5,7 +5,10 @@ public class Fib
     {
         //int num = Integer.parseInt(args[0]);
         //System.out.println("Fib of " + num + ": " + fib(num));
-        makeWords(3, "", "abcd");
+        for(int i = 0; i < 10; i++)
+        {
+            System.out.println(toWords(i));
+        }
     }
     public static int fib(int n)
     {
@@ -25,6 +28,24 @@ public class Fib
                 makeWords(remainingLetters - 1, result + alphabet.charAt(i), alphabet);
             }
         }
+    }
+
+    public static String toWords(int n)
+    {
+        if(n < 10)
+        {
+            if(n == 1) return "one";
+            if(n == 2) return "two";
+            if(n == 3) return "three";
+            if(n == 4) return "four";
+            if(n == 5) return "five";
+            if(n == 6) return "six";
+            if(n == 7) return "seven";
+            if(n == 8) return "eight";
+            if(n == 9) return "nine";
+            return "zero";
+        }
+        return "";
     }
 
 }
